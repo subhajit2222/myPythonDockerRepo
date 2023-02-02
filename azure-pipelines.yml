@@ -24,7 +24,6 @@ stages:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         buildContext: '$(System.DefaultWorkingDirectory)'
-        repository: '$(AWS_ECR_REPOSITORY_URI)'
         tags: |
           $(Build.BuildId)
           
