@@ -38,4 +38,11 @@ stages:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
         publishLocation: 'Container'
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'defaultservcon'
+        azureContainerRegistry: '{"loginServer":"acr2245.azurecr.io", "id" : "/subscriptions/4d26045c-f819-4042-9134-8e22c0ce079e/resourceGroups/sys/providers/Microsoft.ContainerRegistry/registries/acr2245"}'
+        dockerComposeFile: '**/docker-compose.yml'
+        action: 'Run a Docker Compose command'
 
